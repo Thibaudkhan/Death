@@ -8,8 +8,7 @@
 		
 	 	$statement = $db->query("SELECT COUNT(*) as 'aze' FROM mort_usa  WHERE intent = 'Suicide' and age < '".$valeur."' ");
         $item = $statement->fetch();
-    	
-    	
+
        /* while($item = $statement->fetch()) {
         	echo "<tr>"."</tr>";
         	echo "<td>". $item['aze']. "</td><br />";
@@ -33,7 +32,7 @@
 		Ce ne sera pas facile pour cela vous devrez réussir à convaincre la personne de vivre...<br />
 		Bonne chance...
 	 </p>
-	 <div class="image">
+	 <div class="image image1 image2 image3">
 
 
 		 <table>
@@ -52,6 +51,7 @@
 		 					echo $item['aze'];
 		 				}else{
 		 					echo "nope";
+
 		 				}
 		 			}
 		 			?>

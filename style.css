@@ -1,0 +1,37 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+
+}
+h1{
+	margin-top: 0;
+}
+
+.image{
+	height: 100%;
+	background-image: url("images/fond1");
+  background-size: cover;
+  position: relative;
+}
+
+.form{
+   
+    
+}
+.result{
+    height: 68px;
+    color: rgb(32,255,14);
+    transform: skewY(-7deg);
+    margin-top: 135px;
+    margin-left: 148px;
+}
+
+.marge{
+    margin-top: 83px;
+    margin-left: 341px;
+    transform: skewY(-16deg);
+
+}
+

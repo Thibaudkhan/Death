@@ -3,11 +3,12 @@
 	 $valeur = "14";
 	 if (!empty($_POST)) {
 	 	$valeur = $_POST['valeur'];
-	 }
-		$db = Database::connect();
+	 	$db = Database::connect();
 		
-	 	$statement = $db->query("SELECT COUNT(age) as 'aze' FROM mort_usa  WHERE intent = 'Suicide' and age < '".$valeur."' ");
+	 	$statement = $db->query("SELECT COUNT(*) as 'aze' FROM `mort_usa` WHERE intent = 'Suicide' and age < '".$valeur."' ");
         $item = $statement->fetch();
+	 }
+		
 
        /* while($item = $statement->fetch()) {
         	echo "<tr>"."</tr>";
@@ -47,7 +48,7 @@
 		 			<?php if (empty($_POST)) {
 		 				echo "Bonjour écris 5";
 		 				}else{
-		 				if ($valeur == 5) { 
+		 				if ($valeur < 16) { 
 		 					echo $item['aze'];
 		 				}else{
 		 					echo "nope";

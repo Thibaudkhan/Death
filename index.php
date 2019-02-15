@@ -1,22 +1,20 @@
 <?php
 	 require "bdd.php" ;
-	 $valeur = "14";
-	 if (!empty($_POST)) {
+	 $lvl =1;
+	 $valeur =1;
+
+	$db = Database::connect();
+	 if (!empty($_POST)){
 	 	$valeur = $_POST['valeur'];
-	 	$db = Database::connect();
-		
-	 	$statement = $db->query("SELECT COUNT(*) as 'aze' FROM `mort_usa` WHERE intent = 'Suicide' and age < '".$valeur."' ");
-        $item = $statement->fetch();
 	 }
-		
 
-       /* while($item = $statement->fetch()) {
-        	echo "<tr>"."</tr>";
-        	echo "<td>". $item['aze']. "</td><br />";
-        	echo "<tr>"."</tr>";*/
+	 function lvl1($valeur){
+	 	$db = Database::connect();
+	 	$statement = $db->query("SELECT COUNT(*) as 'aze' FROM `mort_usa` WHERE intent = 'Suicide' and age < $valeur ");
+        $item = $statement->fetch();
+        echo "> result ".$item['aze']." <br />";
 
-		Database::disconnect();
-
+	 }
 	?>
 <!DOCTYPE html>
 <html>
@@ -27,44 +25,71 @@
 </head>
 <body >
 	
-	<h1>Taux de mort</h1>
-	<p>
-		Bonjour jeune recrue, vous êtes ici pour éviter les suicides par armes à feu dans ce pays ....<br />
-		Ce ne sera pas facile pour cela vous devrez réussir à convaincre la personne de vivre...<br />
-		Bonne chance...
-	 </p>
-	 <div class="image image1 image2 image3">
+	
+	 <div class="image">
+	 	<button class="control" onclick="play('audioPlayer,this')">GOOOO</button>
+	 	<p>&nbsp;</p>
+
+	 	<audio id="audioPlayer" src="music/1.mp3"></audio>
 
 
-		 <table>
-		 	<tr>
-		 		<td>Nombre</td>
-		 	</tr>
-		 </table>
-		 
-		 		 <form action="index.php" role="form" method="post">
+	
+		 		 <form action="index.php" role="form" method="post" >
 		 	<div class="form">
 		 		<div class="result">
-		 			<?php if (empty($_POST)) {
-		 				echo "Bonjour écris 5";
-		 				}else{
-		 				if ($valeur < 16) { 
-		 					echo $item['aze'];
-		 				}else{
-		 					echo "nope";
-
+		 			<?php
+		 			 if (empty($_POST)) {
+		 				echo "<p>>Rechercher à quel age le taux de suicide est le plus élevé.</p>";
+		 			}else{
+		 					$db = Database::connect();
+		 					echo "> SELECT COUNT(*) as 'aze' FROM `mort_usa` WHERE <br/> intent = 'Suicide' and age < $valeur <br /> ";
+					 		lvl1($valeur);
+					 		
 		 				}
-		 			}
 		 			?>
 
 		 		</div>
 	 		<div class="marge">
+	 			
 			 	<input type="text" name="valeur">
 			 	<button type="submit" class="bOui"> Enter ></button>
 		 	</div>
 		 </div>
 		 </form>
-	 </div>
 	 
+	  <div class="LeForm">
+		 	<h2> Ta mission</h2>
+		 	<div id="quete"><h4>Combien de suicide </h4></div>
+		 	
+
+			 <input type="text" name="sethu" id="reponse" />
+			 <input type="button" value="Ok" onclick="Reponses1();" />
+	 <script type="text/javascript">
+	 	
+	 	function Reponses1(){
+		 			var reponse = document.getElementById("reponse").value;
+		 			if (reponse == 30626 ) {
+		 				document.getElementById("quete" ).innerHTML = "<a href='indexLvl2.php'> Press me</a>";
+		 				alert("tu as gagné");
+		 			}
+		 			else{
+		 				alert('Loose');
+		 			}
+		 		 	
+		 		 } 
+
+	 	function play(idPlayer, control) {
+		    var player = document.querySelector('#' + idPlayer);
+
+		        	player.play();
+		        	/*while (player.currentTime == 0) {
+		        		player.play();
+		        	}*/
+		        	
+		        }
+
+	 </script>
+	 </div>
+	</div>
 </body>
 </html>

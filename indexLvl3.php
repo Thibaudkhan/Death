@@ -52,7 +52,7 @@
 		 			<?php
 
 		 			 if (empty($_POST)) {
-		 				echo "> Bonjour on a besoin que tu regardes le type de mort si la police est intervenue le sexe l'age mini et maxi la race puis le lieu de décès: <br /> Un peu d'aide intent = homicide ou Suicide, Police = true ou false , Sex M ou F, race White Black ou Asian/Pacific Islander Hispanic ... lieu Home , Other specified , street ";
+		 				echo "> Dans la premiere case entrer le lieu de la mort domicile street, dans le sex, puis si il y a eu intervention de la police (true ou false), quel type de mort, la couleur de peau entre White Black , ensuite l'age min puis l'age max .";
 		 			}else{
 		 					$db = Database::connect();
 		 					echo "> SELECT COUNT(*) as 'nb' FROM mort_usa WHERE intent='$mortType' AND police='$intervention' AND sex='$sexe' AND age >= $valeurMin AND age <= $valeurMax AND race='$Couleur' AND place='$lieu'  <br /> ";

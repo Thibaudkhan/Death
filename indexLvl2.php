@@ -37,6 +37,7 @@
 	 	
 	 	echo "<td>"."race". " "."age". "</td><br />";
 	 	if ($compter == "oui") {
+	 		echo "";
 	 		while($item = $statement->fetch()) {
         	echo "<td>>".$item['race'] ." "."</td>";
         	echo "<td >". $item['age']." " ."</td><br />";
@@ -70,7 +71,7 @@
 		 			<?php
 
 		 			 if (empty($_POST)) {
-		 				echo "> Bonjour on a besoin que tu regardes";
+		 				echo "> Dans la premiere case entrer le type de mort, dans la deuxieme la couleur de peau entre White Black , ensuite l'age min puis l'age max , combien de donnees à voir et enfin oui = un tableau non le total.";
 		 			}else{
 		 					$db = Database::connect();
 		 					echo "> SELECT * FROM `mort_usa` WHERE age >$valeurMin  AND age < $valeurMax AND race != 'White' and intent='Suicide' age REGEXP '^2' ORDER BY age ASC Limit $Limit <br /> ";

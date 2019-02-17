@@ -39,7 +39,7 @@
 		 		<div class="result">
 		 			<?php
 		 			 if (empty($_POST)) {
-		 				echo "<p>>Rechercher à quel age le taux de suicide est le plus élevé.</p>";
+		 				echo "<p>>Combien de suicide au total</p>";
 		 			}else{
 		 					$db = Database::connect();
 		 					echo "> SELECT COUNT(*) as 'aze' FROM `mort_usa` WHERE <br/> intent = 'Suicide' and age < $valeur <br /> ";
@@ -50,8 +50,8 @@
 
 		 		</div>
 	 		<div class="marge">
-	 			
-			 	<input type="text" name="valeur">
+	 			<p>Insérer un nombre  </p>
+			 	<input type="text" name="valeur" placeholder="nombre">
 			 	<button type="submit" class="bOui"> Enter ></button>
 		 	</div>
 		 </div>
@@ -62,7 +62,7 @@
 		 	<div id="quete"><h4>Combien de suicide </h4></div>
 		 	
 
-			 <input type="text" name="sethu" id="reponse" />
+			 <input type="text" name="sethu" id="reponse" placeholder="nombre" />
 			 <input type="button" value="Ok" onclick="Reponses1();" />
 	 <script type="text/javascript">
 	 	

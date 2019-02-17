@@ -23,6 +23,7 @@ p{
 
 
 .form p{
+    margin: 0;
  transition: all 0.7s ease-out;
     
 }
